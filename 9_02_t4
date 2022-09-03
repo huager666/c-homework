@@ -1,0 +1,91 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int t = 0;
+    cin >> t;
+
+    for (int i = 0; i < t; i++)
+    {
+        char a[10];
+        char b[10];
+        char c[10];
+        int a_start = 0;
+        int a_end = 0;
+        int b_start = 0;
+        int b_end = 0;
+        int c_start = 0;
+        int c_end = 0;
+        char * p;
+        for (int i = 0; i < 10; i++)
+        {
+            cin >> a[i];
+        }
+        
+        for (int i = 0; i < 10; i++)
+        {
+            cin >> b[i];
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            cin >> c[i];
+        }
+        cin >> a_start;
+        cin >> a_end;
+        cin >> b_start;
+        cin >> b_end;
+        cin >> c_start;
+        cin >> c_end;
+        int count = 0;
+        int len = 0;
+        len = (a_end - a_start + 1) + (b_end - b_start + 1) + (c_end - c_start + 1);
+        char* p1 = new char[len];
+
+
+        p = a;
+        for (int i = a_start-1; i < a_end; i++)
+        {
+            *(p1 + count) = *(p + i);
+            count++;
+        }
+        
+        
+        p = b;
+        for (int i = b_start-1; i < b_end; i++)
+        {
+            *(p1 + count) = *(p + i);
+            count++;
+        }
+
+        p = c;
+        for (int i = c_start-1; i < c_end; i++)
+        {
+            *(p1 + count) = *(p + i);
+            count++;
+        }
+
+       
+        for (int i = 0; i < len; i++)
+        {
+            cout << *(p1 + i);
+        }
+ 
+        cout << endl;
+
+
+        
+       
+
+       
+        
+        
+
+    }
+
+
+
+    
+}
