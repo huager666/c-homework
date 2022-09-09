@@ -1,0 +1,63 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+
+int main()
+{
+
+	char* S= new char[50];
+	char* T= new char[50];
+	int t = 0;
+	cin >> t;
+	for (int i = 0; i < t; i++)
+	{
+		int count_S = 0;
+		int count_T = 0;
+		cin >> S;
+		cin >> T;
+		int len1 = strlen(S);
+		int len2 = strlen(T);
+		if(len1 > len2)
+		{
+			cout << "1" << endl;
+
+		}
+		else if(len1 < len2)
+		{
+			cout << "-1" << endl;
+
+		}
+		else
+		{
+			for(int c=0;c<len1;c++)
+			{
+				if (*(S + c) > *(T + c))
+				{
+					count_S++;
+				}
+				if (*(S + c) < *(T + c))
+				{
+					count_T++;
+				}
+			}
+
+			if (count_S > count_T)
+			{
+				cout << "1" << endl;
+
+			}
+			else if (count_S < count_T)
+			{
+				cout << "-1" << endl;
+
+			}
+			else
+			{
+				cout << "0" << endl;
+			}
+
+		}
+	}
+
+}
+
