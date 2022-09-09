@@ -1,0 +1,54 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+
+int main()
+{
+
+
+
+	int t = 0;
+	cin >> t;
+	for (int i = 0; i < t; i++)
+	{
+		int** array;
+		int m = 0;
+		int n = 0;
+		cin >> m >> n;
+		array = new int* [m];
+		for (int i = 0; i < m; i++)
+		{
+			array[i] = new int[n];
+		}
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				cin >> array[i][j];
+			}
+		}
+		int max = **array;
+		int min = **array;
+		
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				if (array[i][j] > max)
+				{
+					max = array[i][j];
+				}
+				if (array[i][j] < min)
+				{
+					min = array[i][j];
+				}
+			}
+
+
+		}
+		cout << min << " " << max << endl;
+		
+
+		
+	}
+}
