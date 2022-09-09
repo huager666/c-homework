@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const char* month[] = { "January","February","March","April",
+	"May","June","July","Aguest","September","October","November",
+	"December" };
+	int t = 0;
+	cin >> t;
+	for(int i=0;i<t;i++)
+	{
+		int x = 0;
+		cin >> x;
+		if (x > 12)
+		{
+			cout << "error" << endl;
+
+		}
+		else
+		{
+			cout << *(month + x - 1) << endl;
+		}
+		
+	}
+
+}
+
