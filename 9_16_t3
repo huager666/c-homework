@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+
+struct TICKET
+{
+    char Name[31];
+    char Terminal[31];
+    char Operator[31];
+    char CardIssuers[31];
+    char Validity[31];
+    char CardNumber[31];
+    char Traded[31];
+    char Costs[31];
+   
+};
+
+int main()
+{
+    int t = 0;
+    cin >> t;
+    for (int count = 0; count < t; count++)
+    {
+        TICKET pr;
+        cin >> pr.Name >> pr.Terminal >> pr.Operator >> pr.CardIssuers >> pr.Validity >> pr.CardNumber >> pr.Traded >> pr.Costs;
+        cout << "Name: " << pr.Name << endl << "Terminal: " << pr.Terminal << " operator: " << pr.Operator << endl;
+        cout << "Card Issuers: " << pr.CardIssuers << " Validity: " << pr.Validity << endl;
+        cout << "CardNumber: " << pr.CardNumber[0] << pr.CardNumber[1] << pr.CardNumber[2] << pr.CardNumber[3] << "********" << pr.CardNumber[12] << pr.CardNumber[13] << pr.CardNumber[14] << pr.CardNumber[15] << endl;
+        cout << "Traded: " << pr.Traded << endl << "Costs: $" <<pr.Costs<< endl << endl;
+    }
+
+}
+
+
