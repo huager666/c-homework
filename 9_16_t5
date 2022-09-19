@@ -1,0 +1,106 @@
+#include <iostream>
+#include<string.h>
+
+using namespace std;
+
+
+int compared(char* p1, char* p2);
+struct paper
+{
+    int ID;
+    char test1[100];
+    char test2[100];
+    char test3[100];
+
+};
+
+
+int main()//纯手打，纪念一下
+{
+    int t = 0;
+    cin >> t;
+    int same1;
+    int same2;   
+    int same3;
+    paper* p = new paper[t];
+    for (int i = 0; i < t; i++)
+    {
+
+        
+        cin >> (p+i)->ID >> (p + i)->test1 >> (p + i)->test2 >> (p + i)->test3;
+    
+        
+
+    }
+
+    for (int i = 0; i < t; i++)
+    {
+
+
+       
+        for (int j = i+1; j < t; j++)
+        {
+            same1 = compared((p + i)->test1, (p + j)->test1);
+            if (same1 == 1)
+                cout << (p + i)->ID << " " << (p + j)->ID << " 1"<<endl;
+
+            same2 = compared((p + i)->test2, (p + j)->test2);
+           
+            if (same2 == 1)
+                cout << (p + i)->ID << " " << (p +j )->ID << " 2" << endl;
+
+            same3 = compared((p + i)->test3, (p + j)->test3);
+            if (same3 == 1)
+                cout << (p + i)->ID << " " << (p + j)->ID << " 3" << endl;
+
+
+
+
+
+        }
+
+
+    }
+    
+
+  
+    
+    
+
+}
+
+int compared(char* p1, char* p2)//传入要比较的两个字符串  same=compared(p->test1, (p + 1)->test1);
+{
+    float same = 0;
+    float s = 0;
+  
+    for (int i = 0; i < strlen(p1); i++)
+    {
+        if (*(p1 + i) == *(p2 + i))
+        {
+            same++;
+        }
+
+    }
+  
+    s = same / strlen(p1);
+  
+   
+        if (s >= float(0.9))
+            return 1;
+        else
+            return 0;
+    
+
+   
+}
+
+
+
+
+    
+
+
+
+
+
