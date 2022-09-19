@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+void compare(int& a, int& b, int& c);
+
+int main()
+{
+    int t = 0;
+    cin >> t;
+    for (int count = 0; count < t; count++)
+    {
+        int a = 0; 
+        int b = 0; 
+        int c = 0;
+        cin >> a >> b >> c;
+        compare(a, b, c);
+        cout << a << " " << b << " " << c << endl;
+    }
+
+}
+void compare(int& ra, int& rb, int& rc)
+{
+    int temp = 0;
+    if (rb > ra)
+    {
+        temp = ra;
+        ra = rb;
+        rb = temp;
+
+    }
+    if (rc > ra)
+    {
+        temp = ra;
+        ra = rc;
+        rc = temp;
+
+    }
+    if (rc > rb)
+    {
+        temp = rb;
+        rb = rc;
+        rc = temp;
+
+    }
+    
+}
