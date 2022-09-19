@@ -1,0 +1,113 @@
+#include <iostream>
+
+using namespace std;
+int find(int* num, int n);
+int find_second(int* num, int n,int minIndex);
+
+struct Date
+{
+    int year;
+    int month;
+    int day;
+   
+};
+
+
+int main()
+{
+    int t = 0;
+    cin >> t;
+    int* p = new int[t];
+    int all = 0;
+    int min = 0;
+    int second = 0;
+    int s = 0;
+    for (int i = 0; i < t; i++)
+    {
+        
+        Date pr;
+        cin >> pr.year >> pr.month >> pr.day;
+        all = pr.year * 10000 + pr.month * 100 + pr.day;
+        *(p + i) = all;
+  
+    }
+
+        min = find(p, t);
+        second = find_second(p, t, min);
+       //cout << min << " " << second;
+        
+        s = *(p + second);
+        cout << s / 10000 << "-" << (s % 10000) / 100 << "-" << (s % 10000) % 100 << endl;
+
+   
+
+}
+
+int find(int* num, int n)
+{
+    int minIndex = 0;
+    
+    int min = *num;
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (*(num + i + 1) <min)
+        {
+            min = *(num + i + 1);
+        }
+
+
+    }
+    
+
+    for (int i = 0; i < n; i++)
+    {
+        if (*(num + i) == min)
+        {
+            minIndex = i;
+            break;
+        }
+
+
+    }
+    return minIndex;
+
+   
+}
+
+int find_second(int* num, int n,int minIndex)
+{
+    int secondIndex = 0;
+    int min = *num;
+    if (*num== *(num + minIndex))
+    {
+        min = *(num + 1);
+    }
+    for (int i = 0; i < n; i++)
+    {       
+
+        
+        if (*(num + i) < min&&*(num+i)!=*(num+minIndex))
+        {
+            min = *(num + i);
+        }
+        
+
+    }
+
+   
+    for (int i = 0; i < n; i++)
+    {
+        if (*(num + i) == min)
+        {
+            secondIndex = i;
+            break;
+        }
+
+
+    }
+    return secondIndex;
+
+
+}
+
+
