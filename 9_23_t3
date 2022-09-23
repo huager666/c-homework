@@ -1,0 +1,145 @@
+#include <iostream>
+#include<string>
+#include<cmath>
+using namespace std;
+
+//点-----类定义------
+class Point
+{
+public:
+    void setPoint(int,int);
+    int getX();
+    int getY();
+
+    
+
+   
+
+private:
+    int x;
+    int y;
+
+    
+
+
+
+};
+
+//点----类实现------
+
+void Point::setPoint(int x1,int y1)
+{
+    x = x1;
+    y = y1;
+}
+int Point::getX()
+{
+    return x;
+}
+int Point::getY()
+{
+    return y;
+}
+
+
+
+
+
+//圆-----类定义------
+class Circle
+{
+public:
+    void setCenter(int,int);
+    void setRadius(int);
+    void  getArea();
+    void  getLength();
+    void contain(Point);
+
+
+
+
+
+private:
+    int x;
+    int y;
+    int r;
+
+
+
+
+
+
+};
+
+//圆----类实现------
+
+void Circle::setCenter(int x1,int y1)
+{
+    x = x1;
+    y = y1;
+    
+}
+
+void Circle::setRadius(int r1)
+{
+    r = r1;
+}
+
+void Circle::getArea()
+{
+    float s = 0;
+    s = 3.14 * r * r;
+    cout << s << " ";
+}
+
+void Circle::getLength()
+{
+    float l = 0;
+    l = 3.14 * 2 * r;
+    cout << l <<endl;
+}
+
+void Circle::contain(Point xs)
+{
+    int x1 = 0;
+    int y1 = 0;
+    x1 = xs.getX();
+    y1 = xs.getY();
+   
+    
+    float dx = 0;
+    dx = sqrt((x1 - x)* (x1 - x)+(y1-y)* (y1 - y));
+    if (dx <= r)
+        cout << "yes" << endl;
+    else
+        cout << "no" << endl;
+}
+
+
+
+//-----主函数-----
+int main()
+{
+    
+    int p_x, p_y;
+    int c_x, c_y, c_r;
+    cin >> c_x >> c_y>>c_r;
+    cin >> p_x >> p_y;
+    Point p1;
+    Circle c1;
+    c1.setCenter(c_x, c_y);
+    c1.setRadius(c_r);
+    p1.setPoint(p_x,p_y);
+    c1.getArea();
+    c1.getLength();
+    c1.contain(p1);
+
+
+
+
+
+
+}
+
+
+
