@@ -1,0 +1,39 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+
+class CStudent
+{
+public:
+    string name;
+    string ID;
+    string sex;
+    string major;
+    string phone;
+
+
+
+};
+int main()
+{
+    int t = 0;
+    cin >> t;
+    CStudent pr[20];
+    for (int i = 0; i < t;i++)
+    {
+        
+        cin >> pr[i].name >> pr[i].ID >> pr[i].sex >> pr[i].major >> pr[i].phone;
+
+    }
+
+    for (int i = 0; i < t; i++)
+    {
+
+        cout << pr[i].name << endl;
+
+    }
+}
+
+
+
