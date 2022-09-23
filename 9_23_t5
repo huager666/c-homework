@@ -1,0 +1,130 @@
+#include <iostream>
+#include<string>
+#include<cmath>
+#include<algorithm>
+using namespace std;
+
+//-----类定义------
+class Healthy
+{
+public:
+    void setInformation(string,float,float,float);
+    void name_print();
+    void BMI();
+    void BMI_print();
+    void Flat();
+    void Flat_print();
+    int getWeight();
+    void print();
+      
+    
+
+   
+
+private:
+    string name;
+    float height;
+    float weight;
+    float waistline;
+    float BMI_num;
+    float flat_num;
+
+
+
+    
+
+
+
+};
+
+//----类实现------
+
+void Healthy::name_print()
+{
+    cout << name;
+}
+void Healthy::setInformation(string name1, float h, float w, float wl)
+{
+    name = name1;
+    height = h;
+    weight = w;
+    waistline = wl;
+
+}
+void Healthy::BMI()
+{
+    BMI_num = weight / (height*height);
+    
+}
+
+
+void Healthy::BMI_print()
+{
+    cout << round(BMI_num);
+
+}
+
+void Healthy::Flat()
+{
+    float a = 0;
+    float b = 0;
+    a = waistline * 0.74;
+    b = weight * 0.082 + 34.9;
+    flat_num =(a-b)/weight;
+
+}
+
+void Healthy::Flat_print()
+{
+    float a;
+
+    a = round(flat_num * 100) / 100;
+    cout << a;
+
+}
+
+
+
+
+
+
+//-----主函数-----
+int main()
+{
+    
+    int t;
+    cin >> t;
+    Healthy *p=new Healthy[t];
+    for (int i = 0; i < t; i++)
+    {
+        string name ;
+        float h =0;
+        float w=0;
+        float wl=0;
+
+        cin >> name >>h>> w >> wl;
+
+        p[i].setInformation(name,h,w,wl);
+        p[i].BMI();
+        p[i].Flat();
+
+
+        p[i].name_print();
+        cout << "的BMI指数为";
+        p[i].BMI_print();
+        cout << "--体脂率为";
+        p[i].Flat_print();
+        cout << endl;
+    }
+    
+
+
+
+
+
+
+
+}
+
+
+
