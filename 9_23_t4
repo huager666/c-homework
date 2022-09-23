@@ -1,0 +1,103 @@
+#include <iostream>
+#include<string>
+#include<cmath>
+#include<algorithm>
+using namespace std;
+
+//-----类定义------
+class Cat
+{
+public:
+    void setInformation(string,int);
+    string getName();
+    int getWeight();
+    void print();
+      
+    
+
+   
+
+private:
+    string name;
+    int w;
+
+    
+
+
+
+};
+
+//----类实现------
+
+void Cat::setInformation(string name1,int w1)
+{
+    name = name1;
+    w = w1;
+
+}
+string Cat::getName()
+{
+   
+    return name;
+    
+}
+int Cat::getWeight()
+{
+    return w;
+    
+}
+
+void Cat::print()
+{
+    cout << name;
+
+}
+
+
+
+bool compare(Cat p1, Cat p2)
+{
+    return p2.getWeight() > p1.getWeight();
+}
+
+//-----主函数-----
+int main()
+{
+    
+    int t;
+    cin >> t;
+    Cat *p=new Cat[t];
+    for (int i = 0; i < t; i++)
+    {
+        string name ;
+        int w ;
+        cin >> name >> w;
+
+        p[i].setInformation(name, w);
+    }
+    sort(p, (p + t),compare);
+
+    for (int i = 0; i < t; i++)
+    {
+        
+       
+
+        (p + i)->print();
+        if (i == t - 1)
+            cout << endl;
+        else
+
+            cout << " ";
+
+        
+    }
+
+
+
+
+
+
+}
+
+
+
