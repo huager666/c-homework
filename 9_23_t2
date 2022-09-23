@@ -1,0 +1,116 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+
+class CAccount
+{
+public:
+    void set_information(long, string, float);
+
+    void deposit(float);
+    void deposit_print();
+
+    void withdraw(float);
+    void withdraw_print();
+
+    void error_print();
+
+    float get_balance()
+    {
+        return balance;
+    }
+    string get_name()
+    {
+        return name;
+    }
+private:
+    long account=0;
+    string name;
+    float balance=0;
+    float deposit_money=0;
+    float withdraw_money=0;
+  
+
+
+};
+void CAccount::set_information(long account1, string name1, float balance1)
+{
+    account = account1;
+    name = name1;
+    balance = balance1;
+}
+
+
+void CAccount::deposit(float x)
+{
+    balance = balance + x;
+    deposit_print();
+}
+void CAccount::deposit_print()
+{
+    cout << "saving ok!" << endl;
+    cout << name<<"'s balance is "<<balance<< endl;
+}
+
+
+void CAccount::withdraw(float x)
+{
+    if (x > balance)
+    {
+        error_print();
+    }
+    else
+    {
+        balance = balance - x;
+        withdraw_print();
+    }
+}
+void CAccount::withdraw_print()
+{
+    cout << "withdraw ok!" << endl;
+    cout << name << "'s balance is " << balance << endl;
+}
+
+
+void CAccount::error_print()
+{
+    cout << "sorry! over limit!" << endl;
+    cout << name << "'s balance is " << balance << endl;
+   
+}
+
+
+
+int main()
+{
+   // int t = 0;
+   // cin >> t;
+    long account=0;
+    string name;
+    float balance=0;
+    float deposit_money=0;
+    float withdraw_money=0;
+    CAccount pr;
+
+    while (1)
+    {
+
+    
+    cin >> account >> name >> balance>>deposit_money>>withdraw_money;
+   // balance = pr.get_balance();
+   
+    pr.set_information(account, name, balance);
+    cout <<pr.get_name() << "'s balance is " << pr.get_balance() << endl;
+   
+    pr.deposit(deposit_money);
+    pr.withdraw(withdraw_money);
+}
+
+    
+
+    
+}
+
+
+
